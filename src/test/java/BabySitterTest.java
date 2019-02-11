@@ -107,6 +107,36 @@ import static org.junit.Assert.*;
 
         }
 
+        //Family C pays $21 per hour before 9pm
+        @Test
+        public void FamilyCPayUntil9(){
+
+            sitter.shiftTime(5,9);
+            sitter.shiftTime(7,9);
+
+            int shiftHours = 4;
+            int shiftHours2 = 2;
+
+            assertEquals(84, sitter.familyCPayUntil9(shiftHours));
+            assertEquals(42, sitter.familyCPayUntil9(shiftHours2));
+
+        }
+
+        //Family C pays $15 per hour after 9pm
+        @Test
+        public void FamilyCPayAfter9(){
+
+            sitter.shiftTime(9,4);
+            sitter.shiftTime(9,1);
+
+            int shiftHours = 7;
+            int shiftHours2 = 4;
+
+            assertEquals(105, sitter.familyCPayAfter9(shiftHours));
+            assertEquals(60, sitter.familyCPayAfter9(shiftHours2));
+        }
+
+
     }
 
 
