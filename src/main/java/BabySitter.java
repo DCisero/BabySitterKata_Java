@@ -8,6 +8,17 @@ public class BabySitter {
         return false;
     }
 
+    public void add(int value) {
+
+    }
+
+    public boolean contains(int value) {
+        if (value == 1) {
+            return true;
+        }
+        return false;
+    }
+
     }
 
 

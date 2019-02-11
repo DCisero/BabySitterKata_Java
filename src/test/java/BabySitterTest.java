@@ -22,6 +22,19 @@ import static org.junit.Assert.*;
             assertFalse(sitter.shiftTime(4.00, 6.30));
         }
 
+        @Test
+        public void ValidateOneFamilyPerNight(){
+
+            sitter.add(1);
+
+            boolean familyPerNight = sitter.contains(1);
+
+            assertTrue(familyPerNight);
+            assertFalse(sitter.contains(2));
+            assertFalse(sitter.contains(3));
+
+        }
+
     }
 
 
