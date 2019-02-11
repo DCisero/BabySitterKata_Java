@@ -65,6 +65,48 @@ import static org.junit.Assert.*;
 
         }
 
+        //Family B pays $12 per hour before 10pm
+        @Test
+        public void FamilyBPayStartUntil10(){
+
+            sitter.shiftTime(5,10);
+            sitter.shiftTime(7,10);
+
+            int shiftHours = 5;
+            int shiftHours2 = 3;
+
+            assertEquals(60, sitter.familyBPayUntil10(shiftHours));
+            assertEquals(36, sitter.familyBPayUntil10(shiftHours2));
+
+        }
+
+        //Family B pays $8 per hour between 10pm and 12am
+        @Test
+        public void FamilyBPay10Until12(){
+
+            sitter.shiftTime(10,12);
+
+            int shiftHours = 2;
+
+            assertEquals(16, sitter.familyBPayUntil12(shiftHours));
+
+        }
+
+        //Family B pays $16 per hour after 12am
+        @Test
+        public void FamilyBPay12UntilEnd(){
+
+            sitter.shiftTime(12,4);
+            sitter.shiftTime(12,2);
+
+            int shiftHours = 4;
+            int shiftHours2 = 2;
+
+            assertEquals(64, sitter.familyBPayUntilEnd(shiftHours));
+            assertEquals(32, sitter.familyBPayUntilEnd(shiftHours2));
+
+        }
+
     }
 
 

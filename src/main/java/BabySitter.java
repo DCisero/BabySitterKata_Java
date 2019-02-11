@@ -6,10 +6,19 @@ public class BabySitter {
     private int totalHoursWorkedUntil11 = 6;
     private int totalHoursWorkedAfter11 = 5;
 
+    private final int FAMILY_B_PAY_BEFORE10 = 12;
+    private final int FAMILY_B_PAY_AFTER10_UNTIL12 = 8;
+    private final int FAMILY_B_PAY_AFTER12 = 16;
+    private int totalHoursWorkedUntil10 = 5;
+    private int totalHoursWorked10Until12 = 2;
+    private int totalHoursWorkedAfter12 = 4;
+
     public int shiftPayment;
     public int shiftPayment2;
+    public int shiftPayment3;
 
     public int totalPayA;
+    public int totalPayB;
 
 
     public boolean shiftTime(double startTime, double endTime) {
@@ -41,6 +50,30 @@ public class BabySitter {
             shiftPayment2 = FAMILY_A_PAY_AFTER11 * shiftHours;
         }
         return totalPayA = shiftPayment2 + shiftPayment;
+    }
+
+    public int familyBPayUntil10(int shiftHours) {
+        if (shiftHours <= totalHoursWorkedUntil10){
+            shiftPayment = FAMILY_B_PAY_BEFORE10 * shiftHours;
+        }
+
+        return shiftPayment;
+    }
+
+    public int familyBPayUntil12(int shiftHours) {
+        if (shiftHours <= totalHoursWorked10Until12){
+            shiftPayment2 = FAMILY_B_PAY_AFTER10_UNTIL12 * shiftHours;
+        }
+
+        return shiftPayment2;
+    }
+
+    public int familyBPayUntilEnd(int shiftHours) {
+        if (shiftHours <= totalHoursWorkedAfter12){
+            shiftPayment3 = FAMILY_B_PAY_AFTER12 * shiftHours;
+        }
+
+        return totalPayB = shiftPayment3 + shiftPayment2 + shiftPayment;
     }
 
     }
