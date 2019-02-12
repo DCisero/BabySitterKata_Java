@@ -1,4 +1,4 @@
-# BabySitterKata_Java
+# Java_BabySitterKata
 
 ## Requirements
 The babysitter:
